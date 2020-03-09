@@ -3,7 +3,5 @@
 # (C) Wu Dong, 2019
 # All rights reserved
 # @Author: 'Wu Dong <wudong@eastwu.cn>'
-# @Time: '2020-03-09 13:04'
+# @Time: '2020-03-09 17:35'
 
-# JSON编码
-from .pjson import JSONEncoder
