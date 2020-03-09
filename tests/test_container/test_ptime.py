@@ -19,4 +19,6 @@ class TestTime:
         assert timestamp_2_datetime(1583739275, fmt="%Y-%m-%d") == "2020-03-09"
 
     def test_datetime_2_timestamp(self):
-        assert datetime_2_timestamp(datetime.datetime(2020, 3, 9)) == 1583683200.0
+        rst = datetime_2_timestamp(datetime.datetime(2020, 3, 9))
+        # CI运行于travis-ci.com会有时区问题
+        assert rst == 1583683200.0 or rst == 1583712000.0
