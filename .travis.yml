@@ -16,7 +16,7 @@ deploy:
   provider: pypi
   user: East_wu
   password:
-    secure: ${PYPI-PASS}
+    secure: ${PYPIPASS}
   skip_cleanup: true
 #  on:
 #    python: 3.6
