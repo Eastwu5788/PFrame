@@ -18,10 +18,10 @@ deploy:
   password:
     secure: ${PYPIPASS}
   skip_cleanup: true
-#  on:
-#    python: 3.6
-#    branch: master
-
+  on:
+    python: 3.6
+    branch: develop
+# pass: pypi-AgEIcHlwaS5vcmcCJDJjMjY0MWE0LThiYTAtNGI3MS1iMGU3LTk3YTRhMjcyMmEyOQACN3sicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJwZnJhbWUiXX0sICJ2ZXJzaW9uIjogMX0AAAYgbRn171eugRqHSPR33tFyvPKnRH2sp40aYKE__7ts7pY
 
 after_script:
   - coveralls
