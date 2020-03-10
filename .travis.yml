@@ -14,12 +14,12 @@ script:
 
 deploy:
   provider: pypi
-  user: East_wu
+  user: __token__
   password: ${PYPIPASS}
   skip_cleanup: true
-  on:
-    python: 3.6
-    branch: master
+#  on:
+#    python: 3.6
+#    branch: master
 
 after_script:
   - coveralls
