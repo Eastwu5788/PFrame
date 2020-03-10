@@ -9,7 +9,19 @@ install:
   - pip install coveralls
 
 script:
+  - pytest -p no:warnings
   - coverage run -m pytest -p no:warnings
+
+deploy:
+  provider: pypi
+  user: East_wu
+  password:
+    secure: ${PYPI-PASS}
+  skip_cleanup: true
+#  on:
+#    python: 3.6
+#    branch: master
+
 
 after_script:
   - coveralls
