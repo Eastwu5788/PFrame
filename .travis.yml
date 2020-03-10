@@ -11,13 +11,11 @@ install:
 script:
   - pytest -p no:warnings
   - coverage run -m pytest -p no:warnings
-  - echo "${PYPIPASS}"
 
 deploy:
   provider: pypi
   user: East_wu
-  password:
-    secure: ${PYPIPASS}
+  password: ${PYPIPASS}
   skip_cleanup: true
   on:
     python: 3.6
