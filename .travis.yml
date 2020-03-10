@@ -19,7 +19,7 @@ deploy:
   skip_cleanup: true
   on:
     python: 3.6
-    branch: develop
+    branch: master
 
 after_script:
   - coveralls
