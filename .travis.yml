@@ -17,9 +17,9 @@ deploy:
   user: __token__
   password: ${PYPIPASS}
   skip_cleanup: true
-#  on:
-#    python: 3.6
-#    branch: master
+  on:
+    python: 3.6
+    branch: develop
 
 after_script:
   - coveralls
