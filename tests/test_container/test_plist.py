@@ -8,6 +8,7 @@
 import pytest
 
 # project
+from pframe.container import p_chunks, p_divide
 from pframe.container import p_index, p_index_column
 from pframe.util import PFExtractionError
 
@@ -21,6 +22,27 @@ class User:
 
 
 class TestList:
+
+    def test_p_chunks(self):
+        """ 测试函数 `p_chunks`
+        """
+        test_data = [1, 2, 3, 4, 5]
+        assert p_chunks(test_data, 3) == [[1, 2, 3], [4, 5]]
+        assert p_chunks(test_data, 2) == [[1, 2], [3, 4], [5]]
+
+        test_data = [1, 2, 3, 4]
+        assert p_chunks(test_data, 2) == [[1, 2], [3, 4]]
+        assert p_chunks(test_data, 3) == [[1, 2, 3], [4]]
+
+    def test_p_divide(self):
+        """ 测试函数 `p_divide`
+        """
+        test_data = [1, 2, 3, 4, 5]
+        assert p_divide(test_data, 3) == [[1], [2], [3, 4, 5]]
+        assert p_divide(test_data, 2) == [[1, 2], [3, 4, 5]]
+
+        test_data = [1, 2, 3, 4]
+        assert p_divide(test_data, 3) == [[1], [2], [3, 4]]
 
     def test_p_index_smoke(self):
         """ 测试函数 `p_index` 冒烟
