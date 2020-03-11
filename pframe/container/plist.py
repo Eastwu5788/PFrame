@@ -4,9 +4,47 @@
 # All rights reserved
 # @Author: 'Wu Dong <wudong@eastwu.cn>'
 # @Time: '2020-03-09 13:13'
+# sys
+import math
+
 # project
 from pframe.util.exception import PFExtractionError
 from .pobject import p_get
+
+
+def p_chunks(array, size):
+    """ 将数组按切分成固定大小的快
+
+    :param array: 原始数组
+    :param size: 每块大小
+    """
+    if not isinstance(array, list):
+        raise TypeError("input params `array` must be type of list")
+
+    return [array[idx:idx + size] for idx in range(0, len(array), size)]
+
+
+def p_divide(array, size):
+    """ 将数组等分成N个小数组
+
+    TODO: 待完善
+
+    :param array: 原始数组
+    :param size: 子数组大小
+    """
+    if not isinstance(array, list):
+        raise TypeError("input params `array` must be type of list")
+
+    if len(array) < size:
+        raise IndexError("invalid divide size")
+
+    # 按照指固定大小切割前N个数组
+    fmt_rst, step = list(), math.floor(len(array) / size)
+    for idx in range(0, (size - 1) * step, step):
+        fmt_rst.append(array[idx: idx + step])
+
+    fmt_rst.append(array[(size - 1) * step:])
+    return fmt_rst
 
 
 def p_index(array, index=None):

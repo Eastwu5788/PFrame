@@ -15,6 +15,8 @@ from .ptime import current_timestamp, current_timestamp_ms
 from .ptime import timestamp_2_datetime, datetime_2_timestamp
 
 # 从数组中提取数据相关函数
+from .plist import p_chunks
+from .plist import p_divide
 from .plist import p_index
 from .plist import p_index_column
 
