@@ -17,4 +17,3 @@ def md5(ori_str):
     md5_obj = hashlib.md5()
     md5_obj.update(ori_str.encode("utf8"))
     return md5_obj.hexdigest()
-

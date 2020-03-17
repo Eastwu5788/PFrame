@@ -10,7 +10,7 @@ PY2 = sys.version_info[0] == 2
 
 
 if PY2:
-    iteritems = lambda d, *args, **kwargs: d.iteritems(*args, **kwargs)
+    iteritems = lambda d, *args, **kwargs: d.iteritems(*args, **kwargs)  # noqa: E731
 
 else:
-    iteritems = lambda d, *args, **kwargs: iter(d.items(*args, **kwargs))
+    iteritems = lambda d, *args, **kwargs: iter(d.items(*args, **kwargs))  # noqa: E731

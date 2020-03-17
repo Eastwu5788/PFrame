@@ -53,13 +53,13 @@ class ImmutableDictMixin:
         rst = self._hash_cache = hash(frozenset(self._iter_hashitems()))
         return rst
 
-    def setdefault(self, key, default=None):
+    def setdefault(self, key, default=None):  # pylint: disable=unused-argument
         is_immutable(self)
 
-    def update(self, *args, **kwargs):
+    def update(self, *args, **kwargs):  # pylint: disable=unused-argument
         is_immutable(self)
 
-    def pop(self, key, default=None):
+    def pop(self, key, default=None):  # pylint: disable=unused-argument
         is_immutable(self)
 
     def popitem(self):

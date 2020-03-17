@@ -14,16 +14,20 @@ def get_os():
     """
     if sys.platform == 'darwin':
         return 'mac'
-    elif sys.platform.find('freebsd') != -1:
+
+    if sys.platform.find('freebsd') != -1:
         return 'freebsd'
-    elif sys.platform.find('linux') != -1:
+
+    if sys.platform.find('linux') != -1:
         return 'linux'
-    elif sys.platform.find('win32') != -1:
+
+    if sys.platform.find('win32') != -1:
         return 'windows'
-    elif sys.platform.find('sunos') != -1:
+
+    if sys.platform.find('sunos') != -1:
         return 'solaris'
-    else:
-        return sys.platform
+
+    return sys.platform
 
 
 class Platform:
@@ -62,7 +66,7 @@ class Platform:
         return name == "sunos5"
 
     @staticmethod
-    def is_unix(name=None):
+    def is_unix(name=None):  # pylint: disable=unused-argument
         """ Return true if the platform is a unix, False otherwise. """
         return (
                 Platform.is_darwin()
@@ -83,5 +87,4 @@ class Platform:
     def python_architecture():
         if sys.maxsize > 2 ** 32:
             return "64bit"
-        else:
-            return "32bit"
+        return "32bit"

@@ -4,5 +4,6 @@
 # All rights reserved
 # @Author: 'Wu Dong <wudong@eastwu.cn>'
 # @Time: '2020-03-13 17:22'
+# flake8: noqa
 
 from .ip import is_ip

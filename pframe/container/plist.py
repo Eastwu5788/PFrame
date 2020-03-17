@@ -149,29 +149,27 @@ class ImmutableListMixin:
     def __iadd__(self, other):
         is_immutable(self)
 
-    __imul__ == __iadd__
-
     def __setitem__(self, key, value):
         is_immutable(self)
 
-    def append(self, item):
+    def append(self, item):  # pylint: disable=unused-argument
         is_immutable(self)
 
     remove = append
 
-    def extend(self, iterable):
+    def extend(self, iterable):  # pylint: disable=unused-argument
         is_immutable(self)
 
-    def insert(self, pos, value):
+    def insert(self, pos, value):  # pylint: disable=unused-argument
         is_immutable(self)
 
-    def pop(self, index=-1):
+    def pop(self, index=-1):  # pylint: disable=unused-argument
         is_immutable(self)
 
     def reverse(self):
         is_immutable(self)
 
-    def sort(self, cmp=None, key=None, reverse=None):
+    def sort(self, cmp=None, key=None, reverse=None):  # pylint: disable=unused-argument
         is_immutable(self)
 
 
