@@ -6,6 +6,8 @@
 # @Time: '2020-03-13 15:00'
 import collections
 
+from pframe.util.compat import iteritems
+
 
 def p_merge(from_dict, to_dict):
     """ 合并两个字典，支持深度合并
@@ -30,3 +32,58 @@ def p_merge(from_dict, to_dict):
             to_dict[key] = value
 
     return to_dict
+
+
+def is_immutable(obj):
+    raise TypeError("%r objects are immutable" % obj.__class__.__name__)
+
+
+class ImmutableDictMixin:
+    """ This class if from werkzeug.datastructures.py
+    """
+
+    _hash_cache = None
+
+    def _iter_hashitems(self):
+        return iteritems(self)
+
+    def __hash__(self):
+        if self._hash_cache is not None:
+            return self._hash_cache
+        rst = self._hash_cache = hash(frozenset(self._iter_hashitems()))
+        return rst
+
+    def setdefault(self, key, default=None):
+        is_immutable(self)
+
+    def update(self, *args, **kwargs):
+        is_immutable(self)
+
+    def pop(self, key, default=None):
+        is_immutable(self)
+
+    def popitem(self):
+        is_immutable(self)
+
+    def __setitem__(self, key, value):
+        is_immutable(self)
+
+    def __delitem__(self, key):
+        is_immutable(self)
+
+    def clear(self):
+        is_immutable(self)
+
+
+class ImmutableDict(ImmutableDictMixin, dict):
+    """ This class if from werkzeug.datastructures.py
+    """
+
+    def __repr__(self):
+        return "%s(%s)" % (self.__class__.__name__, dict.__repr__(self))
+
+    def copy(self):
+        return dict(self)
+
+    def __copy__(self):
+        return self

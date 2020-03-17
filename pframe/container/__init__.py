@@ -22,9 +22,11 @@ from .plist import p_chunks
 from .plist import p_divide
 from .plist import p_index
 from .plist import p_index_column
+from .plist import ImmutableList
 
 # 字典结构相关函数
 from .pdict import p_merge
+from .pdict import ImmutableDict
 
 # 从对象中提取数据函数
 from .pobject import p_get

@@ -123,3 +123,61 @@ def p_index_column(array, index=None, append=False):
             fmt_rst[value] = item
 
     return fmt_rst
+
+
+def is_immutable(obj):
+    raise TypeError("%r objects are immutable" % obj.__class__.__name__)
+
+
+class ImmutableListMixin:
+    """ This class if from werkzeug.datastructures.py
+    """
+    _hash_cache = None
+
+    def __hash__(self):
+        if self._hash_cache is not None:
+            return self._hash_cache
+        rst = self._hash_cache = hash(tuple(self))
+        return rst
+
+    def __reduce_ex__(self, protocol):
+        return type(self), (list(self),)
+
+    def __delitem__(self, key):
+        is_immutable(self)
+
+    def __iadd__(self, other):
+        is_immutable(self)
+
+    __imul__ == __iadd__
+
+    def __setitem__(self, key, value):
+        is_immutable(self)
+
+    def append(self, item):
+        is_immutable(self)
+
+    remove = append
+
+    def extend(self, iterable):
+        is_immutable(self)
+
+    def insert(self, pos, value):
+        is_immutable(self)
+
+    def pop(self, index=-1):
+        is_immutable(self)
+
+    def reverse(self):
+        is_immutable(self)
+
+    def sort(self, cmp=None, key=None, reverse=None):
+        is_immutable(self)
+
+
+class ImmutableList(ImmutableListMixin, list):
+    """ This class if from werkzeug.datastructures.py
+    """
+
+    def __repr__(self):
+        return "%s(%s)" % (self.__class__.__name__, list.__repr__(self))
