@@ -4,6 +4,7 @@
 # All rights reserved
 # @Author: 'Wu Dong <wudong@eastwu.cn>'
 # @Time: '2020-03-09 13:05'
+# flake8: noqa
 
 # MD5加密
 from .pmd5 import md5
