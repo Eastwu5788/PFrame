@@ -6,7 +6,10 @@
 # @Time: '2020-03-10 09:49'
 
 # ChangeLog:
-# V20200310.01
+# V20200929.1
+# - Add date operate for near
+#
+# V20200310.1
 # - Init Version
 
-version = "20200310.3"
+version = "20200929.1"
