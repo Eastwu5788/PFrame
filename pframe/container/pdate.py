@@ -65,6 +65,40 @@ def month_end(time=None):
     return next_month - datetime.timedelta(days=1)
 
 
+def day_begin(time=None):
+    """ 获取指定日期的开始
+
+    Usage:
+        >>> day_begin(datetime.datetime(2020, 11, 9, 11, 0, 0))
+        datetime.datetime(2020, 11, 9, 0, 0, 0)
+
+    :param time: 指定日期
+    """
+    # 检查入参
+    time = time or datetime.datetime.now()
+    if not isinstance(time, datetime.datetime):
+        raise TypeError("'time' must be type of datetime.datetime")
+
+    return datetime.datetime(time.year, time.month, time.day, hour=0, minute=0, second=0, microsecond=0)
+
+
+def day_end(time=None):
+    """ 获取指定日期的结束
+
+    Usage:
+        >>> day_end(datetime.datetime(2020, 11, 9, 11, 0, 0))
+        datetime.datetime(2020, 11, 9, 23, 59, 59)
+
+    :param time: 指定日期
+    """
+    # 检查入参
+    time = time or datetime.datetime.now()
+    if not isinstance(time, datetime.datetime):
+        raise TypeError("'time' must be type of datetime.datetime")
+
+    return datetime.datetime(time.year, time.month, time.day, hour=23, minute=59, second=59, microsecond=999)
+
+
 def near_days(time=None, period=1):
     """ 获取某个时刻开始的N天之前的日期
 
