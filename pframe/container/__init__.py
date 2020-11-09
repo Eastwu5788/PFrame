@@ -8,6 +8,8 @@
 
 # 日期操作函数
 from .pdate import (
+    day_begin,
+    day_end,
     month_begin,
     month_end,
     near_days,
